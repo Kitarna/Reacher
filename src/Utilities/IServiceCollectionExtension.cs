@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace src.Utilities
+namespace Reacher.Utilities
 {
     public static class IServiceCollectionExtension
     {
