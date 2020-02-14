@@ -9,8 +9,9 @@ environment:
 init:
 - ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
 before_build:
-- appveyor-retry dotnet restore -v Minimal
+  # Display .NET Core version
+  - cmd: dotnet --version
+  # Display minimal restore text
+  - cmd: dotnet restore ./src/Reacher.csproj --verbosity m
 build_script:
 - dotnet build "./src/Reacher.csproj" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
-artifacts:
-- path: artifacts\**\*.*
