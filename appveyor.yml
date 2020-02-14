@@ -16,9 +16,3 @@ before_build:
   - cmd: dotnet restore ./src/Reacher.csproj --verbosity m
 build_script:
 - dotnet build "./src/Reacher.csproj" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
-install:
-  # Cake build is targeting `.NET Core` `3.1.0`, so we can safely install the latest supported `SDK`
-  # The `SDK` is required to restore, build, publish... a `.NET Core` application
-  # https://www.microsoft.com/net/download/windows
-  - ps: .\build\dotnet-install.ps1
-  - ps: dotnet tool install --global Cake.Tool --version 0.35.0
