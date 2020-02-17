@@ -1,22 +1,19 @@
 using Kitarna.Reacher.Models;
 using Kitarna.Reacher.Services;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Kitarna.Reacher
 {
     public class Reacher
     {
-        private readonly HttpClient _client;
-
-        public Reacher(HttpClient client)
-        {
-            _client = client;
-        }
-
-        public void Get(Request request)
+        public Response Get(Request request)
         {
             var requestService = new RequestService();
-            requestService.Get(request);
+            
+            Response response = requestService.Get(request);
+
+            return response;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Kitarna.Reacher.Extensions
     {
         public static IServiceCollection ReacherServiceCollection(this IServiceCollection services)
         {
-            services.AddHttpClient<Reacher>();
+            services.AddSingleton<Reacher>();
             return services;
         }
     }
